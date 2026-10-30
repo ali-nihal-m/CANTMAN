@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Food</title>
+</head>
+<body>{% extends 'base.html' %}
+
+{% block title %}Edit Food - CANTMAN{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">CANTMAN</h1>
+        <h2>Edit Food Item</h2>
+        <p class="text-muted">Update the food item details</p>
+    </div>
+
+    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+
+        <div class="card-body">
+
+            <form method="POST" action="/edit_food_post/{{ food.id }}/">
+
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Food Name</label>
+
+                    <input type="text"
+                           name="food_name"
+                           class="form-control"
+                           value="{{ food.food_name }}"
+                           required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+
+                    <input type="text"
+                           name="category"
+                           class="form-control"
+                           value="{{ food.category }}"
+                           required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+
+                    <textarea name="description"
+                              class="form-control"
+                              rows="3"
+                              required>{{ food.description }}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Price</label>
+
+                    <input type="number"
+                           name="price"
+                           class="form-control"
+                           step="0.01"
+                           value="{{ food.price }}"
+                           required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Quantity</label>
+
+                    <input type="number"
+                           name="quantity"
+                           class="form-control"
+                           value="{{ food.quantity }}"
+                           required>
+                </div>
+
+                <button type="submit" class="btn btn-warning">
+                    Update Food
+                </button>
+
+                <a href="/food_list/" class="btn btn-secondary">
+                    Back to Food List
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+</body>
+</html>

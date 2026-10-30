@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block title %}Home - CANTMAN{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <center>
+     <h1 class="display-4 fw-bold">
+         Welcome to CANTMAN
+     </h1>
+        <p class="lead">Canteen Management System</p>
+        <br>
+         <form method="get" action="/food_list/" class="d-flex justify-content-center mt-4">
+            <input type="text"
+                   name="search"
+                   class="form-control w-50"
+                   placeholder="Search food">
+            <button type="submit" class="btn btn-primary ms-2">
+                Search
+            </button>
+        </form>
+         <br>
+         <br>
+   <div class="mt-5">
+    <a href="/add_food/" class="btn btn-success m2-2">Add Food</a>
+    <br><br>
+    <a href="/food_list/" class="btn btn-primary">Food List</a>
+    <br>
+    <br> <br>
+    <br> <br>
+    <br> <br>
+    <br>
+    <a href="/logout/" class="btn btn-outline-secondory m2-2">Logout</a>
+    <br>
+    <a href="/delete_user/" class="btn btn-danger">Delete Account</a>
+
+    </center>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>
